@@ -1,12 +1,15 @@
+import { useNavigate } from "react-router-dom";
+
 function Navbar() {
+    const navigate = useNavigate();
     return (
         <header className="header">
             <nav>
                 <img className="logo" src="/Images/Logo_livres_atero-removebg-preview.png" alt="" />
 
                 <div className="btns">
-                    <button className="btn_contact">Créer un compte</button>
-                    <button className="btn_don">Se connecter</button>
+                    <button className="btn_contact" onClick={() => navigate("/register")}>Créer un compte</button>
+                    <button className="btn_don" onClick={() => navigate("/login")}>Se connecter</button>
                 </div>
             </nav>
 

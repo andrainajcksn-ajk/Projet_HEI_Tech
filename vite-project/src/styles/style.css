@@ -279,7 +279,8 @@ h2 {
 .propos_image {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 250px); /* 🔥 FIXE LA HAUTEUR */
+    grid-template-rows: repeat(2, 250px);
+    /* 🔥 FIXE LA HAUTEUR */
     gap: 10px;
 }
 
@@ -343,4 +344,63 @@ h2 {
     display: flex;
     align-items: center;
     gap: 2vh;
+}
+
+.auth_container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #355E3B;
+}
+
+.auth_box {
+    background: white;
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
+    padding: 40px;
+    border-radius: 15px;
+    width: 350px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.sentence_connect {
+    color: #7C3F00;
+    margin-bottom: 20px;
+}
+
+.auth_elements input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+.btn_main {
+    width: 100%;
+    padding: 12px;
+    background: #355E3B;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.btn_main:hover {
+    background: #2b4d31;
+}
+
+.error {
+    color: red;
+    font-size: 14px;
+    text-align: left;
+    margin-top: -5px;
+}
+
+input:invalid {
+    border: 1px solid red;
 }

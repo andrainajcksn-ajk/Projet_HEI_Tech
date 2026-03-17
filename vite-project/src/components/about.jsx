@@ -1,4 +1,7 @@
+import { useNavigate } from "react-router-dom";
+
 function About() {
+    const navigate = useNavigate();
     return (
         <section className="section_propos" id="propos">
             <div className="propos_image">
@@ -32,8 +35,8 @@ function About() {
                 </p>
 
                 <div className="propos_btns">
-                    <button className="btn_create">Créer un compte</button>
-                    <button className="btn_connect">Se connecter</button>
+                    <button className="btn_create" onClick={() => navigate("/register")}>Créer un compte</button>
+                    <button className="btn_connect" onClick={() => navigate("/login")}>Se connecter</button>
                 </div>
             </div>
         </section>
