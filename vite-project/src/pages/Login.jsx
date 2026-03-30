@@ -1,9 +1,12 @@
 import { useState } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [errors, setErrors] = useState({});
+    const navigate = useNavigate();
     const validate = () => {
         let newErrors = {};
         if (!email) {
@@ -21,16 +24,27 @@ function Login() {
         return newErrors;
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
         const validationErrors = validate();
 
         if (Object.keys(validationErrors).length > 0) {
             setErrors(validationErrors);
-        } else {
-            setErrors({});
-            console.log("Connexion OK :", email, password);
+            return;
+        }
+
+        try {
+            const res = await axios.post("http://localhost:5000/login", {
+                email,
+                password,
+            });
+
+            alert(res.data.message);
+
+            navigate("/dashboard");
+        } catch (err) {
+            alert("Erreur serveur");
         }
     };
 
@@ -40,13 +54,20 @@ function Login() {
                 <div className="auth_elements">
                     <h2 className="sentence_connect">Se connecter</h2>
 
-                    <form>
-                        <input type="email" placeholder="Email" value={email}
-                            onChange={(e) => setEmail(e.target.value)} />
-                        {errors.email && <p className="error">{errors.email}</p>}
-                        <input type="password" placeholder="Mot de passe" value={password}
-                            onChange={(e) => setPassword(e.target.value)} />
-                        {errors.password && <p className="error">{errors.password}</p>}
+                    <form onSubmit={handleSubmit}>
+                        <input
+                            type="email"
+                            placeholder="Email"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                        />
+
+                        <input
+                            type="password"
+                            placeholder="Mot de passe"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                        />
 
                         <button className="btn_main">Connexion</button>
                     </form>

@@ -280,7 +280,6 @@ h2 {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, 250px);
-    /* 🔥 FIXE LA HAUTEUR */
     gap: 10px;
 }
 
@@ -403,4 +402,8 @@ h2 {
 
 input:invalid {
     border: 1px solid red;
+}
+
+.welcome {
+    padding: 5vh;
 }
