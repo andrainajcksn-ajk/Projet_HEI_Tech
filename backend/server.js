@@ -10,10 +10,6 @@ app.get("/", (req, res) => {
   res.send("API fonctionne !");
 });
 
-app.listen(5000, () => {
-  console.log("Serveur lancé sur http://localhost:5000");
-});
-
 app.post("/register", (req, res) => {
   const { name, email, password } = req.body;
 
@@ -32,4 +28,8 @@ app.post("/login", (req, res) => {
   }
 
   res.json({ message: "Connexion réussie !" });
+});
+
+app.listen(5000, () => {
+  console.log("Serveur lancé sur http://localhost:5000");
 });

@@ -7,6 +7,7 @@ function Login() {
     const [password, setPassword] = useState("");
     const [errors, setErrors] = useState({});
     const navigate = useNavigate();
+
     const validate = () => {
         let newErrors = {};
         if (!email) {
@@ -14,13 +15,11 @@ function Login() {
         } else if (!/\S+@\S+\.\S+/.test(email)) {
             newErrors.email = "Email invalide";
         }
-
         if (!password) {
             newErrors.password = "Mot de passe requis";
         } else if (password.length < 6) {
             newErrors.password = "Minimum 6 caractères";
         }
-
         return newErrors;
     };
 
@@ -28,7 +27,6 @@ function Login() {
         e.preventDefault();
 
         const validationErrors = validate();
-
         if (Object.keys(validationErrors).length > 0) {
             setErrors(validationErrors);
             return;
@@ -40,11 +38,13 @@ function Login() {
                 password,
             });
 
-            alert(res.data.message);
+            if (res.data.message === "Connexion réussie !") {
+                navigate("/dashboard"); // ← redirige vers dashboard
+            }
 
-            navigate("/dashboard");
         } catch (err) {
-            alert("Erreur serveur");
+            // Affiche un message clair si le serveur est éteint
+            setErrors({ general: "Impossible de contacter le serveur. Vérifiez qu'il est lancé." });
         }
     };
 
@@ -54,6 +54,9 @@ function Login() {
                 <div className="auth_elements">
                     <h2 className="sentence_connect">Se connecter</h2>
 
+                    {/* Message d'erreur général */}
+                    {errors.general && <p className="error">{errors.general}</p>}
+
                     <form onSubmit={handleSubmit}>
                         <input
                             type="email"
@@ -61,6 +64,7 @@ function Login() {
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
                         />
+                        {errors.email && <p className="error">{errors.email}</p>}
 
                         <input
                             type="password"
@@ -68,6 +72,7 @@ function Login() {
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
                         />
+                        {errors.password && <p className="error">{errors.password}</p>}
 
                         <button className="btn_main">Connexion</button>
                     </form>

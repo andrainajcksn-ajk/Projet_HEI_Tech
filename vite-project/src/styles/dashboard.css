@@ -1,0 +1,185 @@
+.db {
+    display: flex;
+    min-height: 100vh;
+    background: #f0f4f0;
+    font-family: "Inter", sans-serif;
+}
+
+/* ── Sidebar ── */
+.sidebar {
+    width: 220px;
+    background: #355E3B;
+    display: flex;
+    flex-direction: column;
+    padding: 24px 0;
+    flex-shrink: 0;
+}
+.logo-area {
+    padding: 0 20px 24px;
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+}
+.logo-title { color: #fff; font-size: 17px; font-weight: 700; }
+.logo-sub { color: rgba(255,255,255,0.5); font-size: 11px; margin-top: 3px; }
+
+.nav-section { padding: 16px 12px 0; flex: 1; }
+.nav-label {
+    color: rgba(255,255,255,0.4);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 0 8px;
+    margin-bottom: 6px;
+}
+.nav-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    border-radius: 10px;
+    color: rgba(255,255,255,0.7);
+    cursor: pointer;
+    margin-bottom: 2px;
+    font-size: 13px;
+    transition: background 0.2s;
+}
+.nav-item:hover, .nav-item.active {
+    background: rgba(255,255,255,0.15);
+    color: #fff;
+    font-weight: 500;
+}
+.nav-item .badge {
+    background: #FACC15;
+    color: #7C3F00;
+    font-size: 10px;
+    font-weight: 700;
+    border-radius: 10px;
+    padding: 1px 7px;
+    margin-left: auto;
+}
+
+.sidebar-footer {
+    padding: 16px 12px 0;
+    border-top: 1px solid rgba(255,255,255,0.12);
+}
+.user-chip {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 8px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.user-chip:hover { background: rgba(255,255,255,0.1); }
+.user-name { color: #fff; font-size: 13px; font-weight: 500; }
+.user-status { color: rgba(255,255,255,0.5); font-size: 11px; }
+
+/* ── Avatar cercle ── */
+.avatar-circle {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #FACC15;
+    color: #7C3F00;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 13px;
+    flex-shrink: 0;
+}
+.avatar-circle.small { width: 38px; height: 38px; font-size: 12px; }
+
+/* ── Main ── */
+.db-main { flex: 1; display: flex; flex-direction: column; }
+
+.topbar {
+    background: #fff;
+    border-bottom: 1px solid #e5e7eb;
+    padding: 16px 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.welcome-date { color: #9ca3af; font-size: 12px; }
+.welcome-title { color: #2D2D2D; font-size: 20px; font-weight: 700; }
+.welcome-title span { color: #355E3B; }
+.topbar-right { display: flex; align-items: center; gap: 12px; }
+.search-box {
+    background: #f3f4f6;
+    border: none;
+    border-radius: 10px;
+    padding: 9px 14px;
+    font-size: 13px;
+    width: 200px;
+    outline: none;
+    color: #2D2D2D;
+}
+
+/* ── Contenu ── */
+.db-content { padding: 24px 28px; }
+
+.stats-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+    margin-bottom: 24px;
+}
+.stat-card {
+    background: #fff;
+    border-radius: 14px;
+    padding: 20px;
+    border: 1px solid #e5e7eb;
+}
+.stat-val { font-size: 26px; font-weight: 700; color: #2D2D2D; }
+.stat-lbl { font-size: 12px; color: #9ca3af; margin-top: 4px; }
+
+.two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+.card {
+    background: #fff;
+    border-radius: 14px;
+    border: 1px solid #e5e7eb;
+    overflow: hidden;
+}
+.card-head {
+    padding: 16px 20px;
+    border-bottom: 1px solid #f3f4f6;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.card-title { font-size: 14px; font-weight: 700; color: #2D2D2D; }
+.card-action { font-size: 12px; color: #355E3B; cursor: pointer; font-weight: 600; }
+
+.book-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 20px;
+    border-bottom: 1px solid #f9fafb;
+}
+.book-title { font-size: 13px; font-weight: 500; color: #2D2D2D; }
+.book-badge {
+    font-size: 11px;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-weight: 600;
+}
+.badge-green { background: #DCFCE7; color: #166534; }
+.badge-amber { background: #FEF9C3; color: #854d0e; }
+.badge-blue  { background: #DBEAFE; color: #1e40af; }
+
+.chat-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 20px;
+    border-bottom: 1px solid #f9fafb;
+    cursor: pointer;
+}
+.chat-row:hover { background: #f9fafb; }
+.chat-name { font-size: 13px; font-weight: 600; color: #2D2D2D; }
+.chat-preview { font-size: 11px; color: #9ca3af; margin-top: 2px; }
