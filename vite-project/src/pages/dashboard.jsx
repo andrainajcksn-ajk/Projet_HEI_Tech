@@ -14,18 +14,37 @@ function Dashboard() {
                     <div className="logo-sub">Échange de livres</div>
                 </div>
 
-                <nav className="nav-section">
-                    <p className="nav-label">Menu</p>
-                    <div className="nav-item active">🏠 Accueil</div>
-                    <div className="nav-item">📚 Mes livres <span className="badge">4</span></div>
-                    <div className="nav-item">💬 Messages <span className="badge">3</span></div>
-                    <div className="nav-item">🔍 Explorer</div>
-                    <div className="nav-item">❤️ Favoris</div>
+                <div className="nav-section">
+                    <div className="nav-label">Menu</div>
+                    <div className="nav-item active">
+                        <i className="fa-solid fa-house"></i> Accueil
+                    </div>
+                    <div className="nav-item">
+                        <i className="fa-solid fa-book"></i> Mes livres
+                        <span className="badge">4</span>
+                    </div>
+                    <div className="nav-item">
+                        <i className="fa-solid fa-message"></i> Messages
+                        <span className="badge">3</span>
+                    </div>
+                    <div className="nav-item">
+                        <i className="fa-solid fa-magnifying-glass"></i> Explorer
+                    </div>
+                    <div className="nav-item">
+                        <i className="fa-solid fa-heart"></i> Favoris
+                    </div>
 
-                    <p className="nav-label" style={{ marginTop: "20px" }}>Compte</p>
-                    <div className="nav-item">👤 Mon profil</div>
-                    <div className="nav-item">⚙️ Paramètres</div>
-                </nav>
+                    <div className="nav-label" style={{ marginTop: "20px" }}>Compte</div>
+                    <div className="nav-item">
+                        <i className="fa-solid fa-user"></i> Mon profil
+                    </div>
+                    <div className="nav-item">
+                        <i className="fa-solid fa-gear"></i> Paramètres
+                    </div>
+                    <div className="nav-item">
+                        <i className="fa-solid fa-right-from-bracket"></i> Déconnexion
+                    </div>
+                </div>
 
                 <div className="sidebar-footer">
                     <div className="user-chip">

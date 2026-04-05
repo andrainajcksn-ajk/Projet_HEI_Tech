@@ -2,6 +2,9 @@ import { useNavigate } from "react-router-dom";
 
 function Navbar() {
     const navigate = useNavigate();
+    const scrollToPropos = () => {
+        document.getElementById("propos").scrollIntoView({ behavior: "smooth" });
+    };
     return (
         <header className="header">
             <nav>
@@ -24,7 +27,7 @@ function Navbar() {
                 </div>
 
                 <div className="header_btns">
-                    <button className="btn_déposer">Savoir plus</button>
+                    <button className="btn_déposer" onClick={scrollToPropos}>Savoir plus</button>
                 </div>
             </section>
         </header>

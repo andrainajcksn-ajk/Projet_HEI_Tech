@@ -1,27 +1,46 @@
+* {
+    box-sizing: border-box;
+}
+
 .db {
     display: flex;
     min-height: 100vh;
+    width: 100%;
     background: #f0f4f0;
     font-family: "Inter", sans-serif;
 }
 
 /* ── Sidebar ── */
 .sidebar {
-    width: 220px;
+    width: 240px;
+    min-width: 240px;
     background: #355E3B;
     display: flex;
     flex-direction: column;
     padding: 24px 0;
     flex-shrink: 0;
+    overflow: hidden;
 }
+
 .logo-area {
     padding: 0 20px 24px;
     border-bottom: 1px solid rgba(255,255,255,0.12);
 }
-.logo-title { color: #fff; font-size: 17px; font-weight: 700; }
-.logo-sub { color: rgba(255,255,255,0.5); font-size: 11px; margin-top: 3px; }
+.logo-title {
+    color: #fff;
+    font-size: 17px;
+    font-weight: 700;
+}
+.logo-sub {
+    color: rgba(255,255,255,0.5);
+    font-size: 11px;
+    margin-top: 3px;
+}
 
-.nav-section { padding: 16px 12px 0; flex: 1; }
+.nav-section {
+    padding: 16px 12px 0;
+    flex: 1;
+}
 .nav-label {
     color: rgba(255,255,255,0.4);
     font-size: 10px;
@@ -29,6 +48,7 @@
     letter-spacing: 1px;
     padding: 0 8px;
     margin-bottom: 6px;
+    margin-top: 0;
 }
 .nav-item {
     display: flex;
@@ -40,9 +60,13 @@
     cursor: pointer;
     margin-bottom: 2px;
     font-size: 13px;
+    font-weight: 400;
+    white-space: nowrap;
     transition: background 0.2s;
+    width: 100%;
 }
-.nav-item:hover, .nav-item.active {
+.nav-item:hover,
+.nav-item.active {
     background: rgba(255,255,255,0.15);
     color: #fff;
     font-weight: 500;
@@ -60,6 +84,7 @@
 .sidebar-footer {
     padding: 16px 12px 0;
     border-top: 1px solid rgba(255,255,255,0.12);
+    margin-top: 16px;
 }
 .user-chip {
     display: flex;
@@ -69,14 +94,24 @@
     border-radius: 10px;
     cursor: pointer;
 }
-.user-chip:hover { background: rgba(255,255,255,0.1); }
-.user-name { color: #fff; font-size: 13px; font-weight: 500; }
-.user-status { color: rgba(255,255,255,0.5); font-size: 11px; }
+.user-chip:hover {
+    background: rgba(255,255,255,0.1);
+}
+.user-name {
+    color: #fff;
+    font-size: 13px;
+    font-weight: 500;
+}
+.user-status {
+    color: rgba(255,255,255,0.5);
+    font-size: 11px;
+}
 
-/* ── Avatar cercle ── */
+/* ── Avatar ── */
 .avatar-circle {
     width: 36px;
     height: 36px;
+    min-width: 36px;
     border-radius: 50%;
     background: #FACC15;
     color: #7C3F00;
@@ -85,12 +120,20 @@
     justify-content: center;
     font-weight: 700;
     font-size: 13px;
-    flex-shrink: 0;
 }
-.avatar-circle.small { width: 38px; height: 38px; font-size: 12px; }
+.avatar-circle.small {
+    width: 38px;
+    height: 38px;
+    min-width: 38px;
+}
 
 /* ── Main ── */
-.db-main { flex: 1; display: flex; flex-direction: column; }
+.db-main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
 
 .topbar {
     background: #fff;
@@ -100,10 +143,25 @@
     align-items: center;
     justify-content: space-between;
 }
-.welcome-date { color: #9ca3af; font-size: 12px; }
-.welcome-title { color: #2D2D2D; font-size: 20px; font-weight: 700; }
-.welcome-title span { color: #355E3B; }
-.topbar-right { display: flex; align-items: center; gap: 12px; }
+.welcome-date {
+    color: #9ca3af;
+    font-size: 12px;
+    margin: 0;
+}
+.welcome-title {
+    color: #2D2D2D;
+    font-size: 20px;
+    font-weight: 700;
+    margin: 0;
+}
+.welcome-title span {
+    color: #355E3B;
+}
+.topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
 .search-box {
     background: #f3f4f6;
     border: none;
@@ -116,7 +174,9 @@
 }
 
 /* ── Contenu ── */
-.db-content { padding: 24px 28px; }
+.db-content {
+    padding: 24px 28px;
+}
 
 .stats-row {
     display: grid;
@@ -130,8 +190,16 @@
     padding: 20px;
     border: 1px solid #e5e7eb;
 }
-.stat-val { font-size: 26px; font-weight: 700; color: #2D2D2D; }
-.stat-lbl { font-size: 12px; color: #9ca3af; margin-top: 4px; }
+.stat-val {
+    font-size: 26px;
+    font-weight: 700;
+    color: #2D2D2D;
+}
+.stat-lbl {
+    font-size: 12px;
+    color: #9ca3af;
+    margin-top: 4px;
+}
 
 .two-col {
     display: grid;
@@ -151,8 +219,17 @@
     justify-content: space-between;
     align-items: center;
 }
-.card-title { font-size: 14px; font-weight: 700; color: #2D2D2D; }
-.card-action { font-size: 12px; color: #355E3B; cursor: pointer; font-weight: 600; }
+.card-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: #2D2D2D;
+}
+.card-action {
+    font-size: 12px;
+    color: #355E3B;
+    cursor: pointer;
+    font-weight: 600;
+}
 
 .book-row {
     display: flex;
@@ -161,7 +238,11 @@
     padding: 12px 20px;
     border-bottom: 1px solid #f9fafb;
 }
-.book-title { font-size: 13px; font-weight: 500; color: #2D2D2D; }
+.book-title {
+    font-size: 13px;
+    font-weight: 500;
+    color: #2D2D2D;
+}
 .book-badge {
     font-size: 11px;
     padding: 3px 10px;
@@ -181,5 +262,20 @@
     cursor: pointer;
 }
 .chat-row:hover { background: #f9fafb; }
-.chat-name { font-size: 13px; font-weight: 600; color: #2D2D2D; }
-.chat-preview { font-size: 11px; color: #9ca3af; margin-top: 2px; }
+.chat-name {
+    font-size: 13px;
+    font-weight: 600;
+    color: #2D2D2D;
+}
+.chat-preview {
+    font-size: 11px;
+    color: #9ca3af;
+    margin-top: 2px;
+}
+
+.nav-item i {
+    width: 18px;
+    font-size: 14px;
+    text-align: center;
+    flex-shrink: 0;
+}
