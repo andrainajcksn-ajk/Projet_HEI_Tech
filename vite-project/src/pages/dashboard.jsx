@@ -8,7 +8,7 @@ function Dashboard() {
         <div className="db">
 
             {/* ── SIDEBAR ── */}
-            <aside className="sidebar">
+            <div className="sidebar">
                 <div className="logo-area">
                     <div className="logo-title">Atero ka Alao</div>
                     <div className="logo-sub">Échange de livres</div>
@@ -19,11 +19,11 @@ function Dashboard() {
                     <div className="nav-item active">
                         <i className="fa-solid fa-house"></i> Accueil
                     </div>
-                    <div className="nav-item">
+                    <div className="nav-item" onClick={() => navigate("/dashboard")}>
                         <i className="fa-solid fa-book"></i> Mes livres
                         <span className="badge">4</span>
                     </div>
-                    <div className="nav-item">
+                    <div className="nav-item" onClick={() => navigate("/messages")}>
                         <i className="fa-solid fa-message"></i> Messages
                         <span className="badge">3</span>
                     </div>
@@ -35,18 +35,18 @@ function Dashboard() {
                     </div>
 
                     <div className="nav-label" style={{ marginTop: "20px" }}>Compte</div>
-                    <div className="nav-item">
+                    <div className="nav-item" onClick={() => navigate("/profil")}>
                         <i className="fa-solid fa-user"></i> Mon profil
                     </div>
                     <div className="nav-item">
                         <i className="fa-solid fa-gear"></i> Paramètres
                     </div>
-                    <div className="nav-item">
+                    <div className="nav-item" onClick={() => navigate("/")}>
                         <i className="fa-solid fa-right-from-bracket"></i> Déconnexion
                     </div>
                 </div>
 
-                <div className="sidebar-footer">
+                <div className="sidebar-footer" onClick={() => navigate("/profil")}>
                     <div className="user-chip">
                         <div className="avatar-circle">JD</div>
                         <div>
@@ -55,12 +55,11 @@ function Dashboard() {
                         </div>
                     </div>
                 </div>
-            </aside>
+            </div>
 
             {/* ── MAIN ── */}
             <div className="db-main">
 
-                {/* Topbar */}
                 <div className="topbar">
                     <div>
                         <div className="welcome-date">Jeudi 2 avril 2026</div>
@@ -74,14 +73,12 @@ function Dashboard() {
                             type="text"
                             placeholder="Rechercher un livre..."
                         />
-                        <div className="avatar-circle">JD</div>
+                        <div className="avatar-circle" onClick={() => navigate("/profil")}>JD</div>
                     </div>
                 </div>
 
-                {/* Contenu */}
                 <div className="db-content">
 
-                    {/* Stats */}
                     <div className="stats-row">
                         <div className="stat-card">
                             <div className="stat-val">4</div>
@@ -101,7 +98,6 @@ function Dashboard() {
                         </div>
                     </div>
 
-                    {/* Livres + Messages */}
                     <div className="two-col">
                         <div className="card">
                             <div className="card-head">
@@ -125,16 +121,16 @@ function Dashboard() {
                         <div className="card">
                             <div className="card-head">
                                 <span className="card-title">Messages récents</span>
-                                <span className="card-action">Voir tout</span>
+                                <span className="card-action" onClick={() => navigate("/messages")}>Voir tout</span>
                             </div>
-                            <div className="chat-row">
+                            <div className="chat-row" onClick={() => navigate("/messages")}>
                                 <div className="avatar-circle small">MR</div>
                                 <div>
                                     <div className="chat-name">Marie Rakoto</div>
                                     <div className="chat-preview">Est-ce que le livre est dispo ?</div>
                                 </div>
                             </div>
-                            <div className="chat-row">
+                            <div className="chat-row" onClick={() => navigate("/messages")}>
                                 <div className="avatar-circle small">TA</div>
                                 <div>
                                     <div className="chat-name">Tiana Andriantsoa</div>
