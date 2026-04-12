@@ -116,7 +116,6 @@ function Messages() {
     return (
         <div className="db">
 
-            {/* ── SIDEBAR ── */}
             <div className="sidebar">
                 <div className="logo-area">
                     <div className="logo-title">Atero ka Alao</div>
@@ -163,11 +162,8 @@ function Messages() {
                 </div>
             </div>
 
-            {/* ── MAIN ── */}
             <div className="db-main">
                 <div className="chat-layout">
-
-                    {/* Liste conversations */}
                     <div className="conv-panel">
                         <div className="conv-head">
                             <div className="conv-title">Messages</div>
@@ -205,7 +201,6 @@ function Messages() {
                         </div>
                     </div>
 
-                    {/* Zone de chat */}
                     <div className="chat-panel">
                         <div className="chat-topbar">
                             <div className="chat-av-lg" style={{ background: convActive.couleur, color: convActive.texte }}>

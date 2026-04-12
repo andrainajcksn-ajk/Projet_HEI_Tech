@@ -10,8 +10,6 @@ function Profil() {
 
     return (
         <div className="db">
-
-            {/* ── SIDEBAR ── */}
             <div className="sidebar">
                 <div className="logo-area">
                     <div className="logo-title">Atero ka Alao</div>
@@ -61,10 +59,7 @@ function Profil() {
                 </div>
             </div>
 
-            {/* ── MAIN ── */}
             <div className="db-main">
-
-                {/* Topbar */}
                 <div className="topbar">
                     <div>
                         <div className="topbar-title">Mon profil</div>
@@ -72,10 +67,7 @@ function Profil() {
                     </div>
                 </div>
 
-                {/* Contenu */}
                 <div className="profil-content">
-
-                    {/* Héro */}
                     <div className="profile-hero">
                         <div className="hero-banner"></div>
                         <div className="hero-body">
@@ -115,7 +107,6 @@ function Profil() {
                         </div>
                     </div>
 
-                    {/* Infos + Livres */}
                     <div className="two-col">
                         <div className="card">
                             <div className="card-head">
@@ -192,7 +183,6 @@ function Profil() {
                         </div>
                     </div>
 
-                    {/* Avis */}
                     <div className="card">
                         <div className="card-head">
                             <span className="card-title">Avis reçus</span>
