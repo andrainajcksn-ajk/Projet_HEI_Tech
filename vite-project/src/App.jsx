@@ -7,6 +7,8 @@ import Register from "./pages/Register";
 import Dashboard from "./pages/dashboard";
 import Profil from "./pages/Profil";
 import Messages from "./pages/Messages";
+import Explorer from "./pages/Explorer";
+import MesLivres from "./pages/Meslivres";
 
 function App() {
   return (
@@ -24,6 +26,8 @@ function App() {
       <Route path="/dashboard" element={<Dashboard />} />
       <Route path="/profil" element={<Profil />} />
       <Route path="/messages" element={<Messages />} />
+      <Route path="/explorer" element={<Explorer />} />
+      <Route path="/meslivres" element={<MesLivres />} />
     </Routes>
   );
 }

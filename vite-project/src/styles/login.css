@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Courgette&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Ramaraja&family=Roboto:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+#root:has(.container) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #1a2e1c;
+    text-align: center;
+}
+
+.container {
+    position: relative;
+    width: 256px;
+    height: 256px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container span {
+    position: absolute;
+    left: 0;
+    width: 32px;
+    height: 6px;
+    background: #2b4d2e;  /* vert sombre pour les barres inactives */
+    border-radius: 8px;
+    transform-origin: 128px;
+    transform: scale(2.2) rotate(calc(var(--i) * (360deg / 50)));
+    animation: animateBlink 3s linear infinite;
+    animation-delay: calc(var(--i) * (3s / 50));
+}
+
+@keyframes animateBlink {
+    0% {
+        background: #FACC15;  /* jaune doré — couleur active */
+    }
+    25% {
+        background: #2b4d2e;  /* vert sombre — couleur inactive */
+    }
+}
+
+.login-box {
+    position: absolute;
+    width: 400px;
+}
+
+.login-box form {
+    width: 100%;
+    padding: 0 50px;
+}
+
+h2 {
+    font-size: 2em;
+    color: #FACC15;  /* titre en jaune doré */
+    text-align: center;
+}
+
+.input-box {
+    position: relative;
+    margin: 25px 0;
+}
+
+.input-box input {
+    width: 100%;
+    height: 50px;
+    background: transparent;
+    border: 2px solid #2b4d2e;  /* bordure vert sombre */
+    outline: none;
+    border-radius: 40px;
+    font-size: 1em;
+    color: #fff;
+    padding: 0 20px;
+    transition: 0.5s ease;
+}
+
+.input-box input:focus,
+.input-box input:valid {
+    border-color: #FACC15;  /* bordure jaune au focus */
+}
+
+.input-box label {
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
+    font-size: 1em;
+    color: #fff;
+    pointer-events: none;
+    transition: 0.5s ease;
+}
+
+.input-box input:focus ~ label,
+.input-box input:valid ~ label {
+    top: 1px;
+    font-size: 0.8em;
+    background: #1a2e1c;  /* même couleur que le fond */
+    padding: 0 6px;
+    color: #FACC15;  /* label en jaune au focus */
+}
+
+.forgot-pass {
+    margin: -15px 0 10px;
+    text-align: center;
+}
+
+.forgot-pass a {
+    font-size: 0.85em;
+    color: #fff;
+    text-decoration: none;
+}
+
+.forgot-pass a:hover {
+    text-decoration: underline;
+    color: #FACC15;
+}
+
+.btn {
+    width: 100%;
+    height: 45px;
+    background: #355E3B;  /* bouton vert bibliothèque */
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    cursor: pointer;
+    font-size: 1em;
+    color: #fff;
+    font-weight: 600;
+    transition: background 0.3s ease;
+}
+
+.btn:hover {
+    background: #FACC15;  /* jaune au hover */
+    color: #1a2e1c;
+}
+
+.signup-link {
+    margin: 20px 0 10px;
+    text-align: center;
+}
+
+.signup-link a {
+    font-size: 1em;
+    color: #FACC15;  
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.signup-link a:hover {
+    text-decoration: underline;
+}

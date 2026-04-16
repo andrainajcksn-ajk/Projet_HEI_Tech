@@ -4,10 +4,6 @@ import "../styles/profil.css";
 function Profil() {
     const navigate = useNavigate();
 
-    const scrollToTop = () => {
-        window.scrollTo({ top: 0, behavior: "smooth" });
-    };
-
     return (
         <div className="db">
             <div className="sidebar">
@@ -21,7 +17,7 @@ function Profil() {
                     <div className="nav-item" onClick={() => navigate("/dashboard")}>
                         <i className="fa-solid fa-house"></i> Accueil
                     </div>
-                    <div className="nav-item" onClick={() => navigate("/dashboard")}>
+                    <div className="nav-item" onClick={() => navigate("/meslivres")}>
                         <i className="fa-solid fa-book"></i> Mes livres
                         <span className="badge">4</span>
                     </div>
@@ -29,7 +25,7 @@ function Profil() {
                         <i className="fa-solid fa-message"></i> Messages
                         <span className="badge">3</span>
                     </div>
-                    <div className="nav-item" onClick={() => navigate("/dashboard")}>
+                    <div className="nav-item" onClick={() => navigate("/explorer")}>
                         <i className="fa-solid fa-magnifying-glass"></i> Explorer
                     </div>
                     <div className="nav-item" onClick={() => navigate("/dashboard")}>
@@ -68,6 +64,8 @@ function Profil() {
                 </div>
 
                 <div className="profil-content">
+
+                    {/* Héro */}
                     <div className="profile-hero">
                         <div className="hero-banner"></div>
                         <div className="hero-body">
@@ -107,6 +105,7 @@ function Profil() {
                         </div>
                     </div>
 
+                    {/* Infos + Livres */}
                     <div className="two-col">
                         <div className="card">
                             <div className="card-head">
@@ -154,35 +153,44 @@ function Profil() {
                         <div className="card">
                             <div className="card-head">
                                 <span className="card-title">Mes livres déposés</span>
-                                <span className="card-action">Voir tout</span>
+                                <span className="card-action" onClick={() => navigate("/meslivres")}>Voir tout</span>
                             </div>
-                            <div className="book-row">
-                                <div className="book-cover" style={{ background: "#DCFCE7" }}></div>
-                                <div className="book-info">
-                                    <div className="book-title">Le Petit Prince</div>
-                                    <div className="book-author">Antoine de Saint-Exupéry</div>
+                            <div style={{ display: "flex", alignItems: "center", gap: "12px", padding: "11px 20px", borderBottom: "1px solid #f9fafb" }}>
+                                <div style={{ width: "32px", minWidth: "32px", height: "44px", borderRadius: "5px", background: "#DCFCE7", flexShrink: 0 }}></div>
+                                <div style={{ flex: 1, minWidth: 0 }}>
+                                    <div style={{ fontSize: "13px", fontWeight: 500, color: "#2D2D2D" }}>Le Petit Prince</div>
+                                    <div style={{ fontSize: "11px", color: "#9ca3af", marginTop: "2px" }}>Antoine de Saint-Exupéry</div>
                                 </div>
                                 <span className="book-badge badge-green">Disponible</span>
                             </div>
-                            <div className="book-row">
-                                <div className="book-cover" style={{ background: "#FEF9C3" }}></div>
-                                <div className="book-info">
-                                    <div className="book-title">L'Alchimiste</div>
-                                    <div className="book-author">Paulo Coelho</div>
+                            <div style={{ display: "flex", alignItems: "center", gap: "12px", padding: "11px 20px", borderBottom: "1px solid #f9fafb" }}>
+                                <div style={{ width: "32px", minWidth: "32px", height: "44px", borderRadius: "5px", background: "#FEF9C3", flexShrink: 0 }}></div>
+                                <div style={{ flex: 1, minWidth: 0 }}>
+                                    <div style={{ fontSize: "13px", fontWeight: 500, color: "#2D2D2D" }}>L'Alchimiste</div>
+                                    <div style={{ fontSize: "11px", color: "#9ca3af", marginTop: "2px" }}>Paulo Coelho</div>
                                 </div>
                                 <span className="book-badge badge-amber">En échange</span>
                             </div>
-                            <div className="book-row">
-                                <div className="book-cover" style={{ background: "#DBEAFE" }}></div>
-                                <div className="book-info">
-                                    <div className="book-title">1984</div>
-                                    <div className="book-author">George Orwell</div>
+                            <div style={{ display: "flex", alignItems: "center", gap: "12px", padding: "11px 20px" }}>
+                                <div style={{ width: "32px", minWidth: "32px", height: "44px", borderRadius: "5px", background: "#DBEAFE", flexShrink: 0 }}></div>
+                                <div style={{ flex: 1, minWidth: 0 }}>
+                                    <div style={{ fontSize: "13px", fontWeight: 500, color: "#2D2D2D" }}>1984</div>
+                                    <div style={{ fontSize: "11px", color: "#9ca3af", marginTop: "2px" }}>George Orwell</div>
                                 </div>
                                 <span className="book-badge badge-green">Disponible</span>
+                            </div>
+                            <div style={{ display: "flex", alignItems: "center", gap: "12px", padding: "11px 20px", borderBottom: "1px solid #f9fafb" }}>
+                                <div style={{ width: "32px", minWidth: "32px", height: "44px", borderRadius: "5px", background: "#FEF9C3", flexShrink: 0 }}></div>
+                                <div style={{ flex: 1, minWidth: 0 }}>
+                                    <div style={{ fontSize: "13px", fontWeight: 500, color: "#2D2D2D" }}>Les Misérables</div>
+                                    <div style={{ fontSize: "11px", color: "#9ca3af", marginTop: "2px" }}>Victor Hugo</div>
+                                </div>
+                                <span className="book-badge badge-amber">Prêté</span>
                             </div>
                         </div>
                     </div>
 
+                    {/* Avis — EN DEHORS du two-col */}
                     <div className="card">
                         <div className="card-head">
                             <span className="card-title">Avis reçus</span>

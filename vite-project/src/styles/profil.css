@@ -371,17 +371,18 @@
     gap: 12px;
     padding: 11px 20px;
     border-bottom: 1px solid #f9fafb;
+    width: 100%;
 }
 
-.book-row:last-child {
-    border-bottom: none;
-}
+.book-row:last-child { border-bottom: none; }
 
 .book-cover {
     width: 32px;
+    min-width: 32px;
     height: 44px;
     border-radius: 5px;
     flex-shrink: 0;
+    display: block;
 }
 
 .book-info {
@@ -393,6 +394,9 @@
     font-size: 13px;
     font-weight: 500;
     color: #2D2D2D;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .book-author {

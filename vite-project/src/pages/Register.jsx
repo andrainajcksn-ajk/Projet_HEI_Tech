@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import "../styles/login.css";
 
 function Register() {
     const [name, setName] = useState("");
@@ -8,92 +9,118 @@ function Register() {
     const [password, setPassword] = useState("");
     const [errors, setErrors] = useState({});
     const navigate = useNavigate();
+
     const validate = () => {
         let newErrors = {};
-
-        if (!name) {
-            newErrors.name = "Nom requis";
-        }
-
+        if (!name) newErrors.name = "Nom requis";
         if (!email) {
             newErrors.email = "Email requis";
         } else if (!/\S+@\S+\.\S+/.test(email)) {
             newErrors.email = "Email invalide";
         }
-
         if (!password) {
             newErrors.password = "Mot de passe requis";
         } else if (password.length < 6) {
             newErrors.password = "Minimum 6 caractères";
         }
-
         return newErrors;
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
         const validationErrors = validate();
-
         if (Object.keys(validationErrors).length > 0) {
             setErrors(validationErrors);
             return;
         }
-
         try {
             const res = await axios.post("http://localhost:5000/register", {
                 name,
                 email,
                 password,
             });
-
             alert(res.data.message);
-
-            navigate("/dashboard"); 
+            navigate("/dashboard");
         } catch (err) {
-            alert("Erreur serveur");
+            setErrors({ general: "Impossible de contacter le serveur." });
         }
     };
 
-    return (
-        <section className="auth_container">
-            <div className="auth_box">
-                <div className="auth_elements">
-                    <h2>Créer un compte</h2>
+    const barres = Array.from({ length: 50 }, (_, i) => (
+        <span key={i} style={{ "--i": i }}></span>
+    ));
 
-                    <form onSubmit={handleSubmit}>
+    return (
+        <div className="container">
+
+            {/* Animation circulaire */}
+            {barres}
+
+            {/* Formulaire */}
+            <div className="login-box">
+                <form onSubmit={handleSubmit}>
+                    <h2>Inscription</h2>
+
+                    {errors.general && (
+                        <p style={{ color: "#ff4d4d", textAlign: "center", marginBottom: "10px", fontSize: "0.85em" }}>
+                            {errors.general}
+                        </p>
+                    )}
+
+                    <div className="input-box">
                         <input
                             type="text"
-                            placeholder="Nom"
                             value={name}
                             onChange={(e) => setName(e.target.value)}
+                            required
                         />
-                        {errors.name && <p className="error">{errors.name}</p>}
+                        <label>Nom complet</label>
+                        {errors.name && (
+                            <p style={{ color: "#ff4d4d", fontSize: "0.75em", marginTop: "4px", paddingLeft: "20px" }}>
+                                {errors.name}
+                            </p>
+                        )}
+                    </div>
 
+                    <div className="input-box">
                         <input
                             type="email"
-                            placeholder="Email"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
+                            required
                         />
-                        {errors.email && <p className="error">{errors.email}</p>}
+                        <label>Email</label>
+                        {errors.email && (
+                            <p style={{ color: "#ff4d4d", fontSize: "0.75em", marginTop: "4px", paddingLeft: "20px" }}>
+                                {errors.email}
+                            </p>
+                        )}
+                    </div>
 
+                    <div className="input-box">
                         <input
                             type="password"
-                            placeholder="Mot de passe"
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
+                            required
                         />
-                        {errors.password && <p className="error">{errors.password}</p>}
+                        <label>Mot de passe</label>
+                        {errors.password && (
+                            <p style={{ color: "#ff4d4d", fontSize: "0.75em", marginTop: "4px", paddingLeft: "20px" }}>
+                                {errors.password}
+                            </p>
+                        )}
+                    </div>
 
-                        <button className="btn_connect" type="submit">Créer un compte</button>
-                    </form>
-                </div>
-                <p>
-                    Déjà un compte ? <a href="/login">Se connecter</a>
-                </p>
+                    <button type="submit" className="btn">Créer un compte</button>
+
+                    <div className="signup-link">
+                        <a href="/login">Déjà un compte ? Se connecter</a>
+                    </div>
+
+                </form>
             </div>
-        </section>
+        </div>
     );
 }
 

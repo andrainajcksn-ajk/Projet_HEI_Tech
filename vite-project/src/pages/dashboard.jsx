@@ -19,7 +19,7 @@ function Dashboard() {
                     <div className="nav-item active">
                         <i className="fa-solid fa-house"></i> Accueil
                     </div>
-                    <div className="nav-item" onClick={() => navigate("/dashboard")}>
+                    <div className="nav-item" onClick={() => navigate("/meslivres")}>
                         <i className="fa-solid fa-book"></i> Mes livres
                         <span className="badge">4</span>
                     </div>
@@ -27,7 +27,7 @@ function Dashboard() {
                         <i className="fa-solid fa-message"></i> Messages
                         <span className="badge">3</span>
                     </div>
-                    <div className="nav-item">
+                    <div className="nav-item" onClick={() => navigate("/explorer")}>
                         <i className="fa-solid fa-magnifying-glass"></i> Explorer
                     </div>
                     <div className="nav-item">
@@ -102,7 +102,7 @@ function Dashboard() {
                         <div className="card">
                             <div className="card-head">
                                 <span className="card-title">Mes livres déposés</span>
-                                <span className="card-action">+ Déposer un livre</span>
+                                <span className="card-action" onClick={() => navigate("/meslivres")}>+ Déposer un livre</span>
                             </div>
                             <div className="book-row">
                                 <span className="book-title">Le Petit Prince</span>

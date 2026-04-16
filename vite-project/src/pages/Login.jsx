@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import "../styles/login.css";
 
 function Login() {
     const [email, setEmail] = useState("");
@@ -25,63 +26,89 @@ function Login() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
         const validationErrors = validate();
         if (Object.keys(validationErrors).length > 0) {
             setErrors(validationErrors);
             return;
         }
-
         try {
             const res = await axios.post("http://localhost:5000/login", {
                 email,
                 password,
             });
-
             if (res.data.message === "Connexion réussie !") {
-                navigate("/dashboard"); // ← redirige vers dashboard
+                navigate("/dashboard");
             }
-
         } catch (err) {
-            // Affiche un message clair si le serveur est éteint
-            setErrors({ general: "Impossible de contacter le serveur. Vérifiez qu'il est lancé." });
+            setErrors({ general: "Impossible de contacter le serveur." });
         }
     };
 
+    // Génère les 50 barres de l'animation
+    const barres = Array.from({ length: 50 }, (_, i) => (
+        <span key={i} style={{ "--i": i }}></span>
+    ));
+
     return (
-        <section className="auth_container">
-            <div className="auth_box">
-                <div className="auth_elements">
-                    <h2 className="sentence_connect">Se connecter</h2>
+        <div className="container">
 
-                    {/* Message d'erreur général */}
-                    {errors.general && <p className="error">{errors.general}</p>}
+            {/* Animation circulaire */}
+            {barres}
 
-                    <form onSubmit={handleSubmit}>
+            {/* Formulaire */}
+            <div className="login-box">
+                <form onSubmit={handleSubmit}>
+                    <h2>Connexion</h2>
+
+                    {errors.general && (
+                        <p style={{ color: "#ff4d4d", textAlign: "center", marginBottom: "10px", fontSize: "0.85em" }}>
+                            {errors.general}
+                        </p>
+                    )}
+
+                    <div className="input-box">
                         <input
                             type="email"
-                            placeholder="Email"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
+                            required
                         />
-                        {errors.email && <p className="error">{errors.email}</p>}
+                        <label>Email</label>
+                        {errors.email && (
+                            <p style={{ color: "#ff4d4d", fontSize: "0.75em", marginTop: "4px", paddingLeft: "20px" }}>
+                                {errors.email}
+                            </p>
+                        )}
+                    </div>
 
+                    <div className="input-box">
                         <input
                             type="password"
-                            placeholder="Mot de passe"
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
+                            required
                         />
-                        {errors.password && <p className="error">{errors.password}</p>}
+                        <label>Mot de passe</label>
+                        {errors.password && (
+                            <p style={{ color: "#ff4d4d", fontSize: "0.75em", marginTop: "4px", paddingLeft: "20px" }}>
+                                {errors.password}
+                            </p>
+                        )}
+                    </div>
 
-                        <button className="btn_main">Connexion</button>
-                    </form>
-                </div>
-                <p>
-                    Pas de compte ? <a href="/register">Créer un compte</a>
-                </p>
+                    <div className="forgot-pass">
+                        <a href="#">Mot de passe oublié ?</a>
+                    </div>
+
+                    <button type="submit" className="btn">Se connecter</button>
+
+                    <div className="signup-link">
+                        <a href="/register">Créer un compte</a>
+                    </div>
+
+                </form>
             </div>
-        </section>
+        </div>
     );
 }
 
