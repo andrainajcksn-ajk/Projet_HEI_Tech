@@ -36,7 +36,7 @@ function Profil() {
                     <div className="nav-item active">
                         <i className="fa-solid fa-user"></i> Mon profil
                     </div>
-                    <div className="nav-item" onClick={() => navigate("/dashboard")}>
+                    <div className="nav-item" onClick={() => navigate("/parametres")}>
                         <i className="fa-solid fa-gear"></i> Paramètres
                     </div>
                     <div className="nav-item" onClick={() => navigate("/")}>
@@ -44,7 +44,7 @@ function Profil() {
                     </div>
                 </div>
 
-                <div className="sidebar-footer">
+                <div className="sidebar-footer" onClick={() => navigate("/profil")}>
                     <div className="user-chip">
                         <div className="avatar-circle">JD</div>
                         <div>

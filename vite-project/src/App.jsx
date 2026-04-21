@@ -9,6 +9,7 @@ import Profil from "./pages/Profil";
 import Messages from "./pages/Messages";
 import Explorer from "./pages/Explorer";
 import MesLivres from "./pages/Meslivres";
+import Parametres from "./pages/Parametres";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
       <Route path="/messages" element={<Messages />} />
       <Route path="/explorer" element={<Explorer />} />
       <Route path="/meslivres" element={<MesLivres />} />
+      <Route path="/parametres" element={<Parametres />} />
     </Routes>
   );
 }

@@ -141,14 +141,14 @@ function MesLivres() {
                     <div className="nav-item" onClick={() => navigate("/profil")}>
                         <i className="fa-solid fa-user"></i> Mon profil
                     </div>
-                    <div className="nav-item">
+                    <div className="nav-item" onClick={() => navigate("/parametres")}>
                         <i className="fa-solid fa-gear"></i> Paramètres
                     </div>
                     <div className="nav-item" onClick={() => navigate("/")}>
                         <i className="fa-solid fa-right-from-bracket"></i> Déconnexion
                     </div>
                 </div>
-                <div className="sidebar-footer">
+                <div className="sidebar-footer" onClick={() => navigate("/profil")}>
                     <div className="user-chip">
                         <div className="avatar-circle">JD</div>
                         <div>
