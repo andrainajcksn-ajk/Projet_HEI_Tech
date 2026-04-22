@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import "../styles/login.css";
 
 function Register() {
-    const [name, setName] = useState("");
+    const [nom, setNom] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [errors, setErrors] = useState({});
@@ -12,7 +12,7 @@ function Register() {
 
     const validate = () => {
         let newErrors = {};
-        if (!name) newErrors.name = "Nom requis";
+        if (!nom) newErrors.nom = "Nom requis";
         if (!email) {
             newErrors.email = "Email requis";
         } else if (!/\S+@\S+\.\S+/.test(email)) {
@@ -35,14 +35,15 @@ function Register() {
         }
         try {
             const res = await axios.post("http://localhost:5000/register", {
-                name,
+                nom,
                 email,
                 password,
             });
-            alert(res.data.message);
+            localStorage.setItem("token", res.data.token);
+            localStorage.setItem("utilisateur", JSON.stringify(res.data.utilisateur));
             navigate("/dashboard");
         } catch (err) {
-            setErrors({ general: "Impossible de contacter le serveur." });
+            setErrors({ general: err.response?.data?.message || "Erreur serveur" });
         }
     };
 
@@ -52,11 +53,7 @@ function Register() {
 
     return (
         <div className="container">
-
-            {/* Animation circulaire */}
             {barres}
-
-            {/* Formulaire */}
             <div className="login-box">
                 <form onSubmit={handleSubmit}>
                     <h2>Inscription</h2>
@@ -70,14 +67,14 @@ function Register() {
                     <div className="input-box">
                         <input
                             type="text"
-                            value={name}
-                            onChange={(e) => setName(e.target.value)}
+                            value={nom}
+                            onChange={(e) => setNom(e.target.value)}
                             required
                         />
                         <label>Nom complet</label>
-                        {errors.name && (
+                        {errors.nom && (
                             <p style={{ color: "#ff4d4d", fontSize: "0.75em", marginTop: "4px", paddingLeft: "20px" }}>
-                                {errors.name}
+                                {errors.nom}
                             </p>
                         )}
                     </div>
@@ -117,7 +114,6 @@ function Register() {
                     <div className="signup-link">
                         <a href="/login">Déjà un compte ? Se connecter</a>
                     </div>
-
                 </form>
             </div>
         </div>

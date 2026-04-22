@@ -36,11 +36,11 @@ function Login() {
                 email,
                 password,
             });
-            if (res.data.message === "Connexion réussie !") {
-                navigate("/dashboard");
-            }
+            localStorage.setItem("token", res.data.token);
+            localStorage.setItem("utilisateur", JSON.stringify(res.data.utilisateur));
+            navigate("/dashboard");
         } catch (err) {
-            setErrors({ general: "Impossible de contacter le serveur." });
+            setErrors({ general: err.response?.data?.message || "Erreur serveur" });
         }
     };
 
